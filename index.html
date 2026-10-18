@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회복탄력성 자가진단</title>
+<meta name="description" content="20문항으로 알아보는 나의 회복탄력성 — 자기조절능력 · 대인관계능력 · 긍정성">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+
+  <!-- 1. 소개 -->
+  <section id="intro" class="screen active">
+    <p class="eyebrow">RESILIENCE SELF-CHECK</p>
+    <h1>나의 <span class="hl">회복탄력성</span>은<br>얼마나 될까요?</h1>
+    <p class="lead">회복탄력성은 역경과 스트레스를 겪은 뒤 다시 일어서는 마음의 근력입니다.
+      20개 문항으로 <b>자기조절능력 · 대인관계능력 · 긍정성</b> 세 영역을 살펴봅니다.</p>
+    <ul class="facts">
+      <li><b>20</b>문항</li><li>약 <b>4</b>분</li><li>5점 척도</li>
+    </ul>
+
+    <form id="profile" class="card" autocomplete="off">
+      <label>닉네임 <small>(선택)</small>
+        <input name="nickname" maxlength="30" placeholder="예: 단단한 마음">
+      </label>
+      <div class="row">
+        <label>연령대
+          <select name="age_group" required>
+            <option value="" disabled selected>선택</option>
+            <option>10대</option><option>20대</option><option>30대</option>
+            <option>40대</option><option>50대</option><option>60대 이상</option>
+          </select>
+        </label>
+        <label>성별
+          <select name="gender" required>
+            <option value="" disabled selected>선택</option>
+            <option>여성</option><option>남성</option><option>기타</option><option>응답안함</option>
+          </select>
+        </label>
+      </div>
+      <label class="check">
+        <input type="checkbox" name="consent" required>
+        <span>응답 내용(닉네임·연령대·성별·문항 응답)이 익명 통계 목적으로 저장되는 데 동의합니다.</span>
+      </label>
+      <button class="btn primary" type="submit">진단 시작하기</button>
+    </form>
+    <p class="note">본 진단은 자기 이해를 돕기 위한 참고용 도구이며 의학적·임상적 진단을 대신하지 않습니다.</p>
+  </section>
+
+  <!-- 2. 문항 -->
+  <section id="quiz" class="screen">
+    <div class="progress"><div id="bar"></div></div>
+    <p id="counter" class="eyebrow"></p>
+    <p id="domain" class="domain"></p>
+    <h2 id="question"></h2>
+    <div id="scale" class="scale" role="radiogroup"></div>
+    <div class="nav">
+      <button id="prev" class="btn ghost" type="button">← 이전</button>
+      <span class="hint">숫자키 1–5로도 응답할 수 있어요</span>
+    </div>
+  </section>
+
+  <!-- 3. 결과 -->
+  <section id="result" class="screen">
+    <p class="eyebrow">MY RESULT</p>
+    <h1 id="r-title"></h1>
+    <div class="score-card card">
+      <div class="gauge">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="52" class="track"/>
+          <circle cx="60" cy="60" r="52" class="fill" id="gauge-fill"/>
+        </svg>
+        <div class="gauge-label"><b id="r-total">0</b><span>/ 100</span></div>
+      </div>
+      <div>
+        <span id="r-level" class="badge"></span>
+        <p id="r-summary"></p>
+        <p id="r-compare" class="muted"></p>
+      </div>
+    </div>
+
+    <h3>영역별 점수</h3>
+    <div id="r-domains" class="domains"></div>
+
+    <h3>하위 요인</h3>
+    <div id="r-subs" class="subs card"></div>
+
+    <h3>나를 위한 회복탄력성 처방</h3>
+    <div id="r-tips" class="tips"></div>
+
+    <p id="r-save" class="muted save"></p>
+    <div class="nav center">
+      <button id="retry" class="btn ghost" type="button">다시 하기</button>
+      <button id="share" class="btn primary" type="button">링크 공유</button>
+    </div>
+    <details class="card refs">
+      <summary>진단 설계 근거</summary>
+      <p>문항은 아래 연구의 이론적 구조를 참고해 새로 작성했습니다(원 척도 문항을 그대로 사용하지 않음).</p>
+      <ul>
+        <li>김주환, 『회복탄력성』(2011) — 한국형 회복탄력성 지수(KRQ-53)의 3요인·9하위요인 구조</li>
+        <li>Reivich &amp; Shatté (2002), <i>The Resilience Factor</i> — 감정조절·충동통제·원인분석·공감·낙관성·자기효능감·적극적 도움 추구</li>
+        <li>Connor &amp; Davidson (2003), CD-RISC — 개인 역량, 변화 수용, 안정적 관계, 통제감</li>
+        <li>Smith et al. (2008), Brief Resilience Scale — 스트레스 후 ‘다시 회복하는 능력’ 측정</li>
+      </ul>
+      <p>판정 기준(100점 환산): 80점 이상 매우 높음 · 72–79점 높음 · 64–71점 보통 · 63점 이하 낮음.
+        KRQ-53 일반인 평균(약 195/265점, 100점 환산 약 74점)과 ‘180점 이하는 쉽게 흔들리는 수준’이라는 해석 기준을 환산해 설정했습니다.</p>
+    </details>
+  </section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
